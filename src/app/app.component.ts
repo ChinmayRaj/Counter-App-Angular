@@ -10,9 +10,27 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title="First"
   count:number=0;
+name:string="";
+displayName:string="";
+email:string="";
 
+getName(event:Event){
+  const name=(event.target as HTMLInputElement).value;
+  this.name=name;
+}
   
-
+showName(newname:string){
+  this.displayName=newname;
+}
+setName(){
+  this.name="Sam";
+}
+getEmail(email:string){{
+this.email=email;
+}}
+setEmail(){
+  this.email="chin@gmail.com";
+}
   handleCounter(value:string){
     if(value=='minus'){
       if(this.count!=0)
@@ -26,5 +44,9 @@ export class AppComponent {
     else{
       this.count=0;
     }
+  }
+  
+  handleListeners(event:Event){
+  console.log("Event happened is ",event.type);
   }
 }

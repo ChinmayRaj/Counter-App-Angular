@@ -2,8 +2,25 @@
 <div style="text-align:center">
   <h2 class="count">{{count}}</h2>
   <div>
-    <button class="btn bg-yellow" (click)="handleCounter('minus')">Decrement</button>
-    <button class="btn bg-green" (click)="handleCounter('plus')">Increment</button>
-    <button class="btn bg-red" (click)="handleCounter('reset')">Reset</button>
+    <button class="btn bg-yellow" (click)="handleCounter('minus') " (mouseenter)="handleListeners($event)">Decrement</button>
+    <button class="btn bg-green" (click)="handleCounter('plus')" (mouseleave)="handleListeners($event)">Increment</button>
+    <button class="btn bg-red" (click)="handleCounter('reset')" (keypress)="handleListeners($event)">Reset</button>
   </div>
+  <h2>Get and set field value</h2>
+  <hr/>
+  <h3>{{displayName}}</h3>
+  <hr/>
+  <input type="text" (input)="getName($event)" value={{name}} placeholder="enter value" #namefield/>
+  <br/>
+  <br/>
+  <button (click)="showName(namefield.value)">Get Value</button>
+  <button (click)="setName()">Set Value</button>
+  <hr/>
+  <h3>Email : {{email}}</h3>
+  <br/>
+  <input type="email" value="{{email}}" placeholder="enter email"  #emailfield/>
+  <br/>
+  <br/>
+  <button (click)="getEmail(emailfield.value)">Get Email</button>
+  <button (click)="setEmail()">Set Email</button>
 </div>
